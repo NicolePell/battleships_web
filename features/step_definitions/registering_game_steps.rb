@@ -1,11 +1,11 @@
 Given(/^I am on the homepage$/) do
-  visit ("/")
+   visit ("/")
 end
 
 When(/^I follow "(.*?)"$/) do |text_link|
-  click_on "New Game"
+   click_on "New Game"
 end
 
 Then(/^I should see "(.*?)"$/) do |text|
-  expect(page).to have_content(text)
+   expect(page).to have_content(text)
 end
