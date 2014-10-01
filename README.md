@@ -7,3 +7,9 @@ By default it is player1's go first and after each shot it will switch the turns
 A game_setup.rb file has been added which sets up the game to a ready state placeing each ship from colums A through to E vertically. 
 
 	
+Features that need to be included:
+- [ ] Starting a game
+- [ ] Registering a second player
+- [ ] Placing the ships
+- [ ] Shooting at each others boards in turns
+- [ ] Winning and losing the game
