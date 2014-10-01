@@ -8,8 +8,8 @@ A game_setup.rb file has been added which sets up the game to a ready state plac
 
 	
 Features that need to be included:
-- [ ] Starting a game
-- [ ] Registering a second player
+- [x] Starting a game
+- [x] Registering a second player
 - [ ] Placing the ships
 - [ ] Shooting at each others boards in turns
 - [ ] Winning and losing the game

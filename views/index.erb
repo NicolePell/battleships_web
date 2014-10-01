@@ -1,1 +1,32 @@
-<a href="/new_game">New Game</a>
+<body>
+	<header>
+		<nav>
+			<ul>
+				<li><a href="/new_game">Start a new game</a></li>
+				<% if @player1 && !@player2%>
+					<li><a href="/new_game">Register Player 2</a></li>
+				<% end %>
+			</ul>
+		</nav>
+		<% if @player1 && @player2 %>
+			<% if @player1 == "" %>
+				<% @player1 = "Player 1" %>
+			<% end %>
+			<% if @player2 == "" %>
+				<% @player2 = "Player 2" %>
+			<% end %>
+			<h1> <%= @player1 %>, <%= @player2 %>, ready to fire?</h1>
+			<p>
+			board
+			</p>
+		<% elsif @player1 %>
+			<% if @player1 == "" %>
+				<% @player1 = "Player 1" %>
+			<% end %>
+			<h1> <%= @player1 %>, you are the first player, waiting for Player 2...</h1>
+		<% end %>
+	</header>
+	<main>
+	</main>	
+</body>
+
