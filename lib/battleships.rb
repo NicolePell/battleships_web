@@ -4,6 +4,7 @@ require_relative 'player'
 require_relative 'cell'
 require_relative 'board'
 require_relative 'water'
+require_relative 'ship'
 
 class BattleShips < Sinatra::Base
 	set :views, settings.root + '/../views/'
@@ -13,6 +14,7 @@ class BattleShips < Sinatra::Base
   GAME = Game.new
   BOARD1 = Board.new(Cell)
   BOARD2 = Board.new(Cell)
+  FLEET1 = [ Ship.aircraft_carrier, Ship.battleship, Ship.destroyer, Ship.submarine, Ship.patrol_boat ]
 
   get '/' do
     @player1 = GAME.player1.name unless GAME.player1.nil?
@@ -43,10 +45,25 @@ class BattleShips < Sinatra::Base
   end
 
   post '/new_game/place_ship' do
+
     @ship = params[:ship]
     @coordinate = params[:coordinate]
     @orientation = params[:orientation]
-    @status = params[:status]
+    # @status = params[:status]
+
+    case @ship
+    when "battleship"
+      BOARD1.place(FLEET1[1], @coordinate, @orientation)
+    when "aircraft_carrier"
+      BOARD1.place(FLEET1[0], @coordinate, @orientation)
+    when "destroyer"
+      BOARD1.place(FLEET1[2], @coordinate, @orientation)
+    when "submarine"
+      BOARD1.place(FLEET1[3], @coordinate, @orientation)
+    else "patrol_boat"
+      BOARD1.place(FLEET1[4], @coordinate, @orientation)
+    end
+    puts BOARD1.inspect
     redirect '/new_game/place_ship'
     #then ...
     # BOARD.place(FLEET1[4], @coordinate, @orientation)

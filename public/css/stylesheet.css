@@ -38,17 +38,44 @@ header h1 {
 }
 
 table {
-background-image: url("http://cdn.phys.org/newman/gfx/news/hires/diving_ocean-792387.jpg");
-border: 1px solid white;
-width: 50%;
+	table-layout: fixed;
+	margin-right: 3em;
+	border: 1px solid white;
+	width:40% ;
+	display: inline-block;
+	z-index: -1; 
+	background-color: black;
 }
 
-th, td {
-padding: 15px;
+section{
+	margin-top: 20%;
+	margin-left :8%;
 
+}
+th, td {
+	padding: 20px;
+	background-color: black;
+	border: 1px dotted white;
+	width: 1em;
+	height: 1em;
+	
+}
+
+img{
+	max-width: 200%;
+	max-height: 200%;
+	overflow: visible;
+	
 }
 
 th {
-font-weight: strong;
-font-color: rgb(2, 20, 19);
+	font-weight: strong;
+	font-color: rgb(2, 20, 19);
+}
+
+#cell{
+	background-color: salmon;
+	width: 3em;
+	border-color: #FFFFFF;
+	float: left;
 }
