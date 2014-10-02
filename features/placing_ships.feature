@@ -4,7 +4,7 @@ Feature: Placing the ships
 	I want to place all my ships on the board
 
 	Scenario: Starting
-		Given I am on the place_ships page
+		Given I am on the place_ship page
 		Then I should see Place your patrol boat
 		When I enter the following into the placement form:
 				| coordinate | A3 |

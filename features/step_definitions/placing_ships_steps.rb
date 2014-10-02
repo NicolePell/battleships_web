@@ -1,5 +1,5 @@
-Given(/^I am on the place_ships page$/) do
-  visit ('/new_game/place_ships')
+Given(/^I am on the place_ship page$/) do
+  visit ('/new_game/place_ship')
 end
 
 Then ('I should see Place your patrol boat') do
