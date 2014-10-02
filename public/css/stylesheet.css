@@ -40,4 +40,13 @@ header h1 {
 main {
 	color: salmon
 }
-git sta
+
+table {
+border: 1px solid white;
+width: 50%;
+}
+
+th, td {
+padding: 15px;
+background-color: salmon
+}

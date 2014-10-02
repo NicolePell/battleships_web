@@ -1,0 +1,16 @@
+<table>
+
+<% (0..10).to_a.each do |column| %>
+<th><%= column %></th>
+<% end %> 
+<% ("A".."J").to_a.each do |row| %>
+<tr>
+<th><%= row %></th>
+<% 10.times do %>
+
+<td> ~</td>
+<% end %>
+</tr>
+<% end %> 
+
+</table>
