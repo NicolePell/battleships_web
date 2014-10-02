@@ -1,16 +1,20 @@
-<table>
-
-<% (0..10).to_a.each do |column| %>
-<th><%= column %></th>
-<% end %> 
-<% ("A".."J").to_a.each do |row| %>
-<tr>
-<th><%= row %></th>
-<% 10.times do %>
-
-<td> ~</td>
+<% row = [] %>
+<%(0..9).to_a.each do |num| %>
+	<% row[num] = BOARD1.grid.values.slice(10 * num, 10) %>
 <% end %>
-</tr>
-<% end %> 
 
+
+<table>
+	<% (0..10).to_a.each do |column| %>
+		<th><%= column %></th>
+	<% end %> 
+
+	<% ("A".."J").to_a.each_with_index do |letter, index| %>
+		<tr>
+		<th><%= letter %></th>
+		<% row[index].each do |cell| %>
+			<td><%= cell.content %></td>
+		<% end %>
+		</tr>
+	<% end %> 
 </table>

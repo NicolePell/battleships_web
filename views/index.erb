@@ -16,9 +16,7 @@
 				<% @player2 = "Player 2" %>
 			<% end %>
 			<h1> <%= @player1 %>, <%= @player2 %>, ready to fire?</h1>
-			<p>
-			board
-			</p>
+			<p><a href="/new_game/place_ship">Place your ships</a></p>	
 		<% elsif @player1 %>
 			<% if @player1 == "" %>
 				<% @player1 = "Player 1" %>

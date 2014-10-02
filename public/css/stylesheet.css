@@ -37,16 +37,18 @@ header h1 {
 	font-size: 2em;
 }
 
-main {
-	color: salmon
-}
-
 table {
+background-image: url("http://cdn.phys.org/newman/gfx/news/hires/diving_ocean-792387.jpg");
 border: 1px solid white;
 width: 50%;
 }
 
 th, td {
 padding: 15px;
-background-color: salmon
+
+}
+
+th {
+font-weight: strong;
+font-color: rgb(2, 20, 19);
 }

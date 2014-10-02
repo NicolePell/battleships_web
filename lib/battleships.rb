@@ -1,6 +1,9 @@
 require 'sinatra/base'
 require_relative 'game'
 require_relative 'player'
+require_relative 'cell'
+require_relative 'board'
+require_relative 'water'
 
 class BattleShips < Sinatra::Base
 	set :views, settings.root + '/../views/'
@@ -8,8 +11,8 @@ class BattleShips < Sinatra::Base
   enable :sessions
 
   GAME = Game.new
-
-
+  BOARD1 = Board.new(Cell)
+  BOARD2 = Board.new(Cell)
 
   get '/' do
     @player1 = GAME.player1.name unless GAME.player1.nil?
@@ -31,7 +34,7 @@ class BattleShips < Sinatra::Base
   end
 
   get '/grid' do
-    BOARD = Board.new(Cell)
+    erb :grid
   end
 
   get '/new_game/place_ship' do
@@ -40,10 +43,11 @@ class BattleShips < Sinatra::Base
   end
 
   post '/new_game/place_ship' do
-    erb :place_ship
+    # erb :place_ship
     @coordinate = params[:coordinate]
     @orientation = params[:orientation]
     @status = params[:status]
+    redirect '/new_game/place_ship'
     #then ...
     # BOARD.place(FLEET1[4], @coordinate, @orientation)
   end

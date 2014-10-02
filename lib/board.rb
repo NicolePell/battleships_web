@@ -10,7 +10,7 @@ class Board
 
 	def place(ship, coord, orientation = :horizontally)
 		coords = [coord.to_sym]
-		ship.size.times{coords << next_coord(coords.last, orientation)}
+		(ship.size-1).times{coords << next_coord(coords.last, orientation)}
 		put_on_grid_if_possible(coords, ship)
 	end
 
@@ -19,8 +19,10 @@ class Board
 	end
 
 	def shoot_at(coordinate)
-		raise "You cannot hit the same square twice" if  grid[coordinate].hit?
-		grid[coordinate.to_sym].shoot
+		coord = coordinate.to_sym
+		# puts coord
+		raise "You cannot hit the same square twice" if  grid[coord].hit?
+		grid[coord].shoot
 	end
 
 	def ships
