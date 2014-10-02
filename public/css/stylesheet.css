@@ -1,0 +1,43 @@
+body {
+	background-image: url("http://hdwallpappers.com/images/wallpapers/Battleship-background_wallpaper.jpg");
+	color: #FFFFFF;
+	font-family: Copperplate, "Copperplate Gothic Light", fantasy;
+}
+nav {
+	list-style-type: none;
+    margin: -3em;
+    padding: 0;
+	background-color: #FFFAFA;
+	font-size: 1em;
+	font-weight: bold;
+}
+
+li {
+	float: left;
+}
+
+a:link, a:visited {
+	display: block;
+	width: 6em;
+	color: #A9A9A9;
+	text-align: center;
+	
+}
+
+form {
+	margin-top: 15%;
+	margin-left: 18%;
+	font-size: 30px;
+}
+
+
+header h1 {
+	margin-top: 5%;
+	margin-left: 18%;
+	font-size: 2em;
+}
+
+main {
+	color: salmon
+}
+git sta
