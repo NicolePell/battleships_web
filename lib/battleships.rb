@@ -43,7 +43,7 @@ class BattleShips < Sinatra::Base
   end
 
   post '/new_game/place_ship' do
-    # erb :place_ship
+    @ship = params[:ship]
     @coordinate = params[:coordinate]
     @orientation = params[:orientation]
     @status = params[:status]

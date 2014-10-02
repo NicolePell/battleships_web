@@ -5,7 +5,7 @@ Feature: Placing the ships
 
 	Scenario: Starting
 		Given I am on the place_ship page
-		Then I should see Place your patrol boat
+		Then I should see Ships
 		When I enter the following into the placement form:
 				| coordinate | A3 |
 				| orientation | Horizontal |

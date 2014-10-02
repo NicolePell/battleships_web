@@ -12,7 +12,3 @@ end
 When(/^I click on "(.*?)"$/) do |link|
   click_link(link)
 end
-
-Then(/^I should see the board$/) do
-  expect(page).to have_content("board")
-end

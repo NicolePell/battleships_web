@@ -9,4 +9,3 @@ Feature: Allowing another player to join the game
 		And I register as Player 2
 		Then I should be registered as "Player 2"
 		And I should see "ready to fire"
-		And I should see the board
