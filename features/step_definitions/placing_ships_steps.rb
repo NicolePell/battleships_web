@@ -1,11 +1,20 @@
-Given(/^I have (\d+) ships$/) do |arg1|
-  pending # express the regexp above with the code you wish you had
+Given(/^I am on the place_ships page$/) do
+  visit ('/new_game/place_ships')
 end
 
-When(/^I click 'place ships'$/) do
-  pending # express the regexp above with the code you wish you had
+Then ('I should see Place your patrol boat') do
+  page.should have_content "Place your patrol boat"
 end
 
-Then(/^I can place the patrolboat$/) do
+When(/^I enter the following into the placement form:$/) do |table|
+ fill_in('coordinate', with: "D5")
+ fill_in('orientation', with: "horizontally")
+end
+
+Then(/^I click 'check'$/) do
+ click_button('check')
+end
+
+Then(/^I will be shown an alert saying 'valid!'$/) do
   pending # express the regexp above with the code you wish you had
 end

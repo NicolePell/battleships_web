@@ -32,6 +32,26 @@ class BattleShips < Sinatra::Base
     redirect '/'
   end
 
+  get '/new_game/place_ships' do
+    erb :place_ships
+
+  end
+
+  post '/new_game/place_ships' do
+    erb :place_ships
+    @coordinate = params[:coordinate]
+    @orientation = params[:orientation]
+    @status = params[:status]
+    #then ...
+    BOARD1.place(FLEET1[4], @coordinate, @orientation)
+    if !true
+      
+    else
+      return 'valid'
+    end
+  end
+
+
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
