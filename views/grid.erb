@@ -1,4 +1,8 @@
-
+<form action="/placing_shot" method="post">
+	Where do you want to shoot?
+	Coordinate: <input type="text" name="coordinate">
+	<input type="submit" value="SHOOT!">
+</form>
 
 <% row = [] %>
 <%(0..9).to_a.each do |num| %>
@@ -27,7 +31,7 @@
 					<% if cell.content.class == Water && !cell.hit? %>
 						<td></td>
 					<% elsif cell.content.class == Water && cell.hit?%>
-						<td > <img src="http://3.bp.blogspot.com/-ta_trXE0F38/UZvmCalbLYI/AAAAAAAADYo/MDrT3Bp47ZM/s1600/15804923-water-splash-isolated-on-black-background.jpg"> </td>
+						<td >MISS<img src="http://3.bp.blogspot.com/-ta_trXE0F38/UZvmCalbLYI/AAAAAAAADYo/MDrT3Bp47ZM/s1600/15804923-water-splash-isolated-on-black-background.jpg"> </td>
 					<% elsif cell.content.class != Water && cell.hit?%>
 						<td > <img src="http://www.clker.com/cliparts/n/b/i/y/G/g/one-eyed-sun-hi.png"> </td>
 					<% else %>

@@ -35,13 +35,10 @@ class BattleShips < Sinatra::Base
     redirect '/'
   end
 
-  get '/grid' do
-    erb :grid
-  end
+
 
   get '/new_game/place_ship' do
     erb :place_ship
-
   end
 
   post '/new_game/place_ship_hidden' do
@@ -64,6 +61,16 @@ class BattleShips < Sinatra::Base
     end
     puts BOARD1.inspect
     redirect '/new_game/place_ship'
+  end
+
+  get '/grid' do
+    erb :grid
+  end
+
+  post '/placing_shot' do
+    @coordinate = params[:coordinate]
+    BOARD1.shoot_at(@coordinate.to_s.capitalize.to_sym)
+    redirect '/grid'
   end
 
 
