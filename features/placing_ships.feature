@@ -6,7 +6,7 @@ Feature: Placing the ships
 	Scenario: Starting
 		Given I am on the place_ship page
 		Then I should see Ships
-		When I enter the following into the placement form:
-				| coordinate | A3 |
-				| orientation | horizontally |
-		Then I click 'place'
+		When I fill in 'coordinate' with 'A3'
+		And I choose 'horizontally'
+		And I click 'place'
+		Then I should see "Ship placed"

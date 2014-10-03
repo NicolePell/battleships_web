@@ -19,7 +19,6 @@ class BattleShips < Sinatra::Base
   get '/' do
     @player1 = GAME.player1.name unless GAME.player1.nil?
     @player2 = GAME.player2.name unless GAME.player2.nil?
-    @name = session[:me]
     erb :index
   end
 
@@ -31,6 +30,7 @@ class BattleShips < Sinatra::Base
     player = Player.new
     player.name =params[:player_name]
     session[:me] = params[:player_name]
+
     GAME.add_player(player)
     redirect '/'
   end
@@ -44,7 +44,7 @@ class BattleShips < Sinatra::Base
 
   end
 
-  post '/new_game/place_ship_hidden' do
+  post '/new_game/place_ship' do
     @ship = params[:ship]
     @coordinate = params[:coordinate]
     @orientation = params[:orientation]
