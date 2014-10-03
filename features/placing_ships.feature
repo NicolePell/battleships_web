@@ -8,5 +8,5 @@ Feature: Placing the ships
 		Then I should see Ships
 		When I enter the following into the placement form:
 				| coordinate | A3 |
-				| orientation | Horizontal |
-		Then I click 'check'
+				| orientation | horizontally |
+		Then I click 'place'

@@ -45,7 +45,6 @@ class BattleShips < Sinatra::Base
   end
 
   post '/new_game/place_ship_hidden' do
-
     @ship = params[:ship]
     @coordinate = params[:coordinate]
     @orientation = params[:orientation]
@@ -65,8 +64,6 @@ class BattleShips < Sinatra::Base
     end
     puts BOARD1.inspect
     redirect '/new_game/place_ship'
-    #then ...
-    # BOARD.place(FLEET1[4], @coordinate, @orientation)
   end
 
 

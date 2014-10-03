@@ -7,13 +7,18 @@ Then(/^I should see Ships$/) do
 end
 
 When(/^I enter the following into the placement form:$/) do |table|
- fill_in('coordinate', with: "D5")
- fill_in('orientation', with: "horizontally")
+ fill_in 'coordinate', :with => "A3"
 end
 
-# Then(/^I should see Ships$/) do
-#  expect(page).to have_xpath("//img[@src= 'http://www.setexasrecord.com/content/img/f235738/ship-wheel.png']") 
+Then(/^I click 'place'$/) do
+  click_button('place')
+end
+
+# When(/^I enter the following into the placement form:$/) do |table|
+#  fill_in('coordinate', with: 'A3')
+#  fill_in('orientation', with: "horizontally")
 # end
-# Then(/^I click 'check'$/) do
-#  click_button('check')
+
+# Then(/^I click 'place'$/) do
+#  click_button('place')
 # end
