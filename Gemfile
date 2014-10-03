@@ -9,4 +9,5 @@ group :development, :test do
   gem 'launchy'
   gem 'rspec'
   gem 'shotgun'
+  gem 'rack-flash3'
 end
