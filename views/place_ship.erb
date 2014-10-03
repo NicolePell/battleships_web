@@ -1,5 +1,5 @@
 <article class='placing ships'>
-	<form action="/new_game/place_ship", method="post">
+	<form action="/new_game/place_ship_hidden", method="post">
 
 		Ships:
 		<input type="radio" name="ship" value="aircraft_carrier">Aircraft Carrier<br>
@@ -16,3 +16,29 @@
     	<input type="submit" value="place">
    </form>
  
+ <% row = [] %>
+<%(0..9).to_a.each do |num| %>
+	<% row[num] = BOARD1.grid.values.slice(10 * num, 10) %>
+	<% end %>
+<table>
+		<% (0..10).to_a.each do |column| %>
+			<th><%= column %></th>
+		<% end %> 
+
+		<% ("A".."J").to_a.each_with_index do |letter, index| %>
+			<tr>
+				<th><%= letter %></th>
+				<% row[index].each do |cell| %>
+					<% if cell.content.class == Water && !cell.hit? %>
+						<td></td>
+					<% elsif cell.content.class == Water && cell.hit?%>
+						<td > <img src="http://3.bp.blogspot.com/-ta_trXE0F38/UZvmCalbLYI/AAAAAAAADYo/MDrT3Bp47ZM/s1600/15804923-water-splash-isolated-on-black-background.jpg"> </td>
+					<% elsif cell.content.class != Water && cell.hit?%>
+						<td > <img src="http://www.clker.com/cliparts/n/b/i/y/G/g/one-eyed-sun-hi.png"> </td>
+					<% else %>
+						<td > <img src="http://www.setexasrecord.com/content/img/f235738/ship-wheel.png" </td>
+					<% end %>
+				<% end %>
+			</tr>
+		<% end %> 
+	 </table>

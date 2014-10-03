@@ -10,6 +10,3 @@ Feature: Placing the ships
 				| coordinate | A3 |
 				| orientation | Horizontal |
 		Then I click 'check'
-		Then I will be shown an alert saying 'valid!'
-
-		Then on page will be 4 more forms for each ship - not dynamic

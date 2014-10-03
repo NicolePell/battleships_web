@@ -44,7 +44,7 @@ class BattleShips < Sinatra::Base
 
   end
 
-  post '/new_game/place_ship' do
+  post '/new_game/place_ship_hidden' do
 
     @ship = params[:ship]
     @coordinate = params[:coordinate]
@@ -53,15 +53,15 @@ class BattleShips < Sinatra::Base
 
     case @ship
     when "battleship"
-      BOARD1.place(FLEET1[1], @coordinate, @orientation)
+      BOARD1.place(FLEET1[1], @coordinate.to_s.capitalize.to_sym, @orientation.to_sym)
     when "aircraft_carrier"
-      BOARD1.place(FLEET1[0], @coordinate, @orientation)
+      BOARD1.place(FLEET1[0], @coordinate.to_s.capitalize.to_sym, @orientation.to_sym)
     when "destroyer"
-      BOARD1.place(FLEET1[2], @coordinate, @orientation)
+      BOARD1.place(FLEET1[2], @coordinate.to_s.capitalize.to_sym, @orientation.to_sym)
     when "submarine"
-      BOARD1.place(FLEET1[3], @coordinate, @orientation)
+      BOARD1.place(FLEET1[3], @coordinate.to_s.capitalize.to_sym, @orientation.to_sym)
     else "patrol_boat"
-      BOARD1.place(FLEET1[4], @coordinate, @orientation)
+      BOARD1.place(FLEET1[4], @coordinate.to_s.capitalize.to_sym, @orientation.to_sym)
     end
     puts BOARD1.inspect
     redirect '/new_game/place_ship'
@@ -73,7 +73,3 @@ class BattleShips < Sinatra::Base
   # start the server if ruby file executed directly
   run! if app_file == $0
 end
-
- # To be declared:
- # FLEET1 = [Ship.aircraft_carrier, Ship.battleship, Ship.destroyer, Ship.submarine, Ship.patrol_boat]
- # Player1.board = BOARD1
