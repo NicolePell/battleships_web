@@ -1,22 +1,18 @@
 <form action="/placing_shot" method="post">
-	Where do you want to shoot?
 	Coordinate: <input type="text" name="coordinate">
 	<input type="submit" value="SHOOT!">
 </form>
 
 <% row = [] %>
 <%(0..9).to_a.each do |num| %>
-	<% row[num] = BOARD1.grid.values.slice(10 * num, 10) %>
+	<% row[num] = @player.board.grid.values.slice(10 * num, 10) %>
 	<% end %>
 
 
 <% row_board2 = [] %>
 <%(0..9).to_a.each do |num| %>
-	<% row_board2[num] = BOARD2.grid.values.slice(10 * num, 10) %>
+	<% row_board2[num] = @opponent.board.grid.values.slice(10 * num, 10) %>
 	<% end %>
-
-
-
 
 <section>
 	<table>
@@ -35,7 +31,7 @@
 					<% elsif cell.content.class != Water && cell.hit?%>
 						<td > <img src="http://www.clker.com/cliparts/n/b/i/y/G/g/one-eyed-sun-hi.png"> </td>
 					<% else %>
-						<td > <img src="http://www.setexasrecord.com/content/img/f235738/ship-wheel.png" </td>
+						<td > <img src="http://www.setexasrecord.com/content/img/f235738/ship-wheel.png" ></td>
 					<% end %>
 				<% end %>
 			</tr>
@@ -43,6 +39,7 @@
 	 </table>
 
 	 <table>
+		<table>
 		<% (0..10).to_a.each do |column| %>
 			<th><%= column %></th>
 		<% end %> 
@@ -52,12 +49,13 @@
 				<th><%= letter %></th>
 				<% row_board2[index].each do |cell| %>
 					<% if cell.content.class == Water && !cell.hit? %>
-						<td > </td>
+						<td></td>
 					<% elsif cell.content.class == Water && cell.hit?%>
-						<td > <img src="http://3.bp.blogspot.com/-ta_trXE0F38/UZvmCalbLYI/AAAAAAAADYo/MDrT3Bp47ZM/s1600/15804923-water-splash-isolated-on-black-background.jpg">  </td>
+						<td >MISS<img src="http://3.bp.blogspot.com/-ta_trXE0F38/UZvmCalbLYI/AAAAAAAADYo/MDrT3Bp47ZM/s1600/15804923-water-splash-isolated-on-black-background.jpg"> </td>
 					<% elsif cell.content.class != Water && cell.hit?%>
+						<td > <img src="http://www.clker.com/cliparts/n/b/i/y/G/g/one-eyed-sun-hi.png"> </td>
+					<% else %>
 						<td > </td>
-					<% else %> </td>
 					<% end %>
 				<% end %>
 			</tr>

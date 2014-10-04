@@ -1,5 +1,5 @@
 <article class='placing ships'>
-	<form action="/new_game/place_ship", method="post">
+	<form action="/new_game/place_ship_hidden", method="post">	
 
 		Ships:
 		<input type="radio" name="ship" value="aircraft_carrier">Aircraft Carrier<br>
@@ -15,10 +15,13 @@
    	  	<input type="radio" name="orientation" value="horizontally">Horizontal<br>
     	<input type="submit" value="place">
    </form>
+ </article>
+
+<a href="/grid">START THE GAME</a>
  
  <% row = [] %>
 <%(0..9).to_a.each do |num| %>
-	<% row[num] = BOARD1.grid.values.slice(10 * num, 10) %>
+	<% row[num] = @player.board.grid.values.slice(10 * num, 10) %>
 	<% end %>
 <table>
 		<% (0..10).to_a.each do |column| %>
